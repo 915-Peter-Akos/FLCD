@@ -1,0 +1,27 @@
+int num;
+bool isPrime;
+
+// Read input number from user
+read(num);
+
+isPrime = true;
+
+if (num <= 1) {
+    isPrime = false;
+} else {
+    int divisor = 2;
+    while (divisor * divisor <= num) {
+        if (num % divisor == 0) {
+            isPrime = false;
+            break;
+        }
+        divisor = divisor + 1;
+    }
+}
+
+// Output whether the number is prime or not
+if (isPrime) {
+    print("Prime") ;
+} else {
+    print("Not Prime");
+}
