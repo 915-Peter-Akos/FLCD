@@ -6,7 +6,7 @@ import re
 class Scanner:
     def __init__(self) -> None:
         self.st = SymbolTable()
-        self.__pif = Pif()
+        self.pif = Pif()
         self.tokens = self.__read_tokens()
         self.operators = ['+', '-', '*', '/', '==', '<', '<=', '>', '>=', '=', '&&', '||']
         self.separators = ['{', '}', '(', ')', ';', '"', ',']
@@ -65,13 +65,13 @@ class Scanner:
 
         for token in tokens:
             if token in self.reserved_words or token in self.operators or token in self.separators:
-                self.__pif.add(token, -1)
+                self.pif.add(token, -1)
             elif self._is_constant(token):
                 index = self.st.insert(token)
-                self.__pif.add("const", index)
+                self.pif.add("const", index)
             elif self._is_identifier(token):
                 index = self.st.insert(token)
-                self.__pif.add("id", index)
+                self.pif.add("id", index)
             else:
                 print(f"Lexical Error at {token}")
         
@@ -82,11 +82,36 @@ class Scanner:
         
 
     def get_tokens(self, content_string):
-        pattern = r'([' + re.escape(''.join(self.separators)) + r'])' # '([\\{\\}\\(\\);",])'
-        output_string_1 = re.sub(pattern, r' \1 ', content_string)
+        
+        # for operator in self.operators:
+        #     # Construct the pattern to match the operator not preceded or followed by any alphanumeric character
+        #     if operator == '=' or operator == '<' or operator == '=':
+        #         continue
+        #     pattern = re.compile(rf'(?<=[a-zA-Z0-9]){re.escape(operator)}|{re.escape(operator)}(?=[a-zA-Z0-9])')
+        #     # Substitute operator with ' operator ' using re.sub() to add spaces around the operator
+        #     content_string = re.sub(pattern, f' {operator} ', content_string)
+
+        for operator in self.operators:
+            if operator == '>' or operator == '<' or operator == '=':
+                continue
+            content_string = content_string.replace(operator, f' {operator} ')
+        pattern = r'([' + re.escape(''.join(self.separators)) + r'])'
+        output_string = re.sub(pattern, r' \1 ', content_string)
+
+        
 
         pattern = r'(?<![<>=])=(?![<>=])'
-        output_string = re.sub(pattern, ' = ', output_string_1)
+        output_string = re.sub(pattern, ' = ', output_string)
+
+        pattern = r'(?<![<>=])<(?![<>=])'
+        output_string = re.sub(pattern, ' < ', output_string)
+
+        pattern = r'(?<![<>=])>(?![<>=])'
+        output_string = re.sub(pattern, ' > ', output_string)
+
+        print(output_string)
+
+        
 
         tokens = output_string.split('\n')
         tokens_string = ''.join(' ' + tok + '' for tok in tokens)
@@ -101,7 +126,7 @@ if __name__ == "__main__":
     # filenames = ["p1.rps", "p2.rps", "p3.rps", "p1err.rps"]
     filenames = ["p1.rps"]
     for filename in filenames:
-        scanner.scan_file(filename)
+        scanner.scan_file(filename, print_tokens=True)
 
 
     
