@@ -1,0 +1,15 @@
+int n;
+read(n);
+
+int numbers[n];
+int sum;
+sum=0;
+
+while(sum < n)
+{
+    read(numbers[i]);
+    sum += numbers[i];
+    sum = sum + 1;
+}
+
+print(sum)
