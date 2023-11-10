@@ -1,10 +1,11 @@
 int num1;
 int num2;
-int num3
+int num3;
 
 read(num1);
 read(num2);
 read(num3);
+1read
 
 int maxNum;
 

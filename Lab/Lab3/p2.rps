@@ -1,7 +1,5 @@
 int num;
 bool isPrime;
-
-// Read input number from user
 read(num);
 
 isPrime = true;
@@ -19,9 +17,8 @@ if (num <= 1) {
     }
 }
 
-// Output whether the number is prime or not
 if (isPrime) {
-    print("Prime") ;
+    print(1) ;
 } else {
-    print("Not Prime");
+    print(0);
 }
