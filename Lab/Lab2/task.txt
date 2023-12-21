@@ -1,141 +1,39 @@
-Statement: Considering a small programming language (that we shall call mini-language), you have to write a scanner (lexical analyser)
+Statement: Implement the Symbol Table (ST) as the specified data structure, with the corresponding operations
 
+Deliverables: class ST(source code) + documentation.
 
-Task 1: Minilanguage Specification
+UPLOAD documentation, on the first line link to git for source code
 
-Deliverables: 
 
-Lexic.txt (file containing mini language lexic description; see example)
+The assignment will be one of the following:
 
-token.in (containing the list of all tokens corresponding to the minilanguage)
 
-Syntax.in - the syntactical rules of the language
+Symbol Table:
 
+a. unique for identifiers and constants (create one instance of  ST)
 
-Task 2: Review the mini language specification of a colleague
+b. separate tables for identifiers, respectively 
 
+  Constants (create 2 instances)
 
-The minilanguage can be a restricted form of a known programming language, and should contain the following:
+Symbol Table (you need to implement the data structure and required operations) :
 
-- 2 simple data types and a user-defined type
+a. Unsorted table
 
-- statements:
+b. alphabetically sorted table
 
-- assignment
+c. alphabetically binary search tree
 
-- input/output
+d. hash table
 
-- conditional
 
-- loop
+Grading:
 
-- some conditions will be imposed on the way the identifiers and constants can be formed:
+No organization for ST - max grade 7
 
-i) Identifiers: no more than 256 characters
+Alphabetically sorted table - max grade 8
 
-ii) constants: corresponding to your types
+Binary search tree - max grade 10
 
+Hash table - max grade 10
 
-Example: the minilanguage specification should include lexical and syntactical details:
-
-Specification (file Lexic.txt)
-
-Alphabet:
-
-a. Upper (A-Z) and lower case letters (a-z) of the English alphabet
-
-       b. Underline character '_';
-
-       c. Decimal digits (0-9);
-
-Lexic:
-
-      a.Special symbols, representing:
-
-- operators + - * / := < <= = >=
-
-- separators [ ] { }  : ; space
-
-- reserved words:
-
-    array  char  const do else  if int  of program read 
-
-then var while write
-
-      b.identifiers
-
-  -a sequence of letters and  digits, such that the first character is a letter; the rule is:
-
-    identifier ::= letter | letter{letter}{digit}
-
-    letter ::= "A" | "B" | . ..| "Z"
-
-    digit ::= "0" | "1" |...| "9"
-
-
-      c.constants
-
-1.integer - rule:
-
-      noconst:="+"no|"-"no|no
-
-      no:=digit{no}
-
-2.character
-
-    character:='letter'|'digit'
-
-3.string
-
-      constchar:="string"
-
-      string:=char{string}
-
-      char:=letter|digit
-
-
- 2. Syntax:
-
-The words - predefined tokens are specified between " and ":
-
-Sintactical rules: (file Syntax.in)
-
-program ::= "VAR" decllist ";" cmpdstmt "."
-
-decllist ::= declaration | declaration ";" decllist
-
-declaration ::= IDENTIFIER ":" type
-
-type1 ::= "BOOLEAN" | "CHAR" | "INTEGER" | "REAL"
-
-arraydecl ::= "ARRAY" "[" nr "]" "OF" type1
-
-type  ::= type1|arraydecl
-
-cmpdstmt ::= "BEGIN" stmtlist "END"
-
-stmtlist ::= stmt | stmt ";" stmtlist
-
-stmt ::= simplstmt | structstmt
-
-simplstmt ::= assignstmt | iostmt
-
-assignstmt ::= IDENTIFIER ":=" expression
-
-expression ::= expression "+" term | term
-
-term ::= term "*" factor | factor
-
-factor ::= "(" expression ")" | IDENTIFIER
-
-iostmt ::= "READ" | "WRITE" "(" IDENTIFIER ")"
-
-structstmt ::= cmpdstmt | ifstmt | whilestmt
-
-ifstmt ::= "IF" condition "THEN" stmt ["ELSE" stmt]
-
-whilestmt ::= "WHILE" condition "DO" stmt
-
-condition ::= expression RELATION expression
-
-RELATION ::= "<" | "<=" | "=" | "<>" | ">=" | ">"

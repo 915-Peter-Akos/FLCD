@@ -1,0 +1,19 @@
+int num1;
+int num2;
+int num3;
+
+read(num1);
+read(num2);
+read(num3);
+
+int maxNum;
+
+if (num1 >= num2 && num1 >= num3) {
+    maxNum = num1;
+} else if (num2 >= num1 && num2 >= num3) {
+    maxNum = num2;
+} else {
+    maxNum = num3;
+}
+
+print(maxNum);

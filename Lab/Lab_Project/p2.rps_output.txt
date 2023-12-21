@@ -1,0 +1,131 @@
+Program Internal Form (PIF):
+int -> -1
+id -> (6, 0)
+; -> -1
+bool -> -1
+id -> (9, 0)
+; -> -1
+/ -> -1
+/ -> -1
+id -> (0, 0)
+id -> (0, 1)
+id -> (9, 1)
+id -> (6, 1)
+id -> (7, 0)
+read -> -1
+( -> -1
+id -> (6, 0)
+) -> -1
+; -> -1
+id -> (9, 0)
+= -> -1
+true -> -1
+; -> -1
+if -> -1
+( -> -1
+id -> (6, 0)
+<= -> -1
+const -> (9, 2)
+) -> -1
+{ -> -1
+id -> (9, 0)
+= -> -1
+false -> -1
+; -> -1
+} -> -1
+else -> -1
+{ -> -1
+int -> -1
+id -> (8, 0)
+= -> -1
+const -> (0, 2)
+; -> -1
+while -> -1
+( -> -1
+id -> (8, 0)
+* -> -1
+id -> (8, 0)
+<= -> -1
+id -> (6, 0)
+) -> -1
+{ -> -1
+if -> -1
+( -> -1
+id -> (6, 0)
+% -> -1
+id -> (8, 0)
+== -> -1
+const -> (8, 1)
+) -> -1
+{ -> -1
+id -> (9, 0)
+= -> -1
+false -> -1
+; -> -1
+break -> -1
+; -> -1
+} -> -1
+id -> (8, 0)
+= -> -1
+id -> (8, 0)
++ -> -1
+const -> (9, 2)
+; -> -1
+} -> -1
+} -> -1
+/ -> -1
+/ -> -1
+id -> (7, 1)
+id -> (9, 3)
+id -> (1, 0)
+id -> (9, 1)
+id -> (0, 3)
+id -> (1, 1)
+id -> (5, 0)
+id -> (7, 2)
+if -> -1
+( -> -1
+id -> (9, 0)
+) -> -1
+{ -> -1
+print -> -1
+( -> -1
+" -> -1
+id -> (9, 4)
+" -> -1
+) -> -1
+; -> -1
+} -> -1
+else -> -1
+{ -> -1
+print -> -1
+( -> -1
+" -> -1
+id -> (5, 1)
+id -> (9, 4)
+" -> -1
+) -> -1
+; -> -1
+} -> -1
+
+Symbol Table (SymTable):
+Index 0, Position 0 -> Read
+Index 0, Position 1 -> input
+Index 0, Position 2 -> 2
+Index 0, Position 3 -> is
+Index 1, Position 0 -> the
+Index 1, Position 1 -> prime
+Index 5, Position 0 -> or
+Index 5, Position 1 -> Not
+Index 6, Position 0 -> num
+Index 6, Position 1 -> from
+Index 7, Position 0 -> user
+Index 7, Position 1 -> Output
+Index 7, Position 2 -> not
+Index 8, Position 0 -> divisor
+Index 8, Position 1 -> 0
+Index 9, Position 0 -> isPrime
+Index 9, Position 1 -> number
+Index 9, Position 2 -> 1
+Index 9, Position 3 -> whether
+Index 9, Position 4 -> Prime

@@ -1,0 +1,13 @@
+program = {statement}
+
+statement = (var_statement | assign_statement | io_statement | conditional_statement | while_statement)
+
+var_statement = ("int" | "string" ) identifier
+assign_statement = identifier "=" expression
+expression = int_expression | string_expression
+int_expression = int_constant | identifier | int_expression ("+"|"-"|"*"|"/") int_expression |"(" int_expression ("+"|"-"|"*"|"/") int_expression ")"
+string_expression = string_constant | identifier | string_expression + string_expression
+if_statement = "if" "(" condition ")" "{" {statement} "}" ["else" "{" {statement} "}"]
+io_statement = ("read" | "write") ( identifier ) 
+condition = expression ("=="|"<"|"<="|">"|">=") expression
+while_statement = "while" "(" condition ")" "{" {statement} "}"
