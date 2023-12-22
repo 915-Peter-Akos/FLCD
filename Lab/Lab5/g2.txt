@@ -1,0 +1,39 @@
+program statement var_statement assign_statement expression int_expression string_expression if_statement io_statement condition while_statement list_statement identifier int_operator condition conditional_operator
+int string = + - * / ( ) if else read write while 0 1 2 3 4 5 6 7 8 9 a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+
+program -> statement program
+program -> statement
+statement -> var_statement
+statement -> assign_statement
+statement -> io_statement
+statement -> conditional_statement
+statement -> while_statement
+statement -> list_statement
+var_statement -> "int" identifier
+var_statement -> "string" identifier
+assign_statement -> identifier "=" expression
+expression -> int_expression
+expression -> string_expression
+int_expression -> int_constant
+int_expression -> identifier
+int_expression -> int_expression int_operator int_expression 
+int_expression -> "(" int_expression int_operator int_expression ")"
+int_operator -> "+"
+int_operator -> "-"
+int_operator -> "/"
+int_operator -> "*"
+string_expression -> string_constant
+string_expression -> identifier
+string_expression -> string_expression "+" string_expression
+if_statement -> "if" "(" condition ")" "{" statement "}"
+if_statement -> "if" "(" condition ")" "{" statement "}" else "{" statement "}"
+io_statement -> "read" "(" identifier ")"
+io_statement -> "write" "(" identifier ")"
+condition -> expression conditional_operator expression
+conditional_operator -> "=="
+conditional_operator -> "!="
+conditional_operator -> "<="
+conditional_operator -> ">="
+conditional_operator -> "<"
+conditional_operator -> ">"
+while_statement -> "while" "(" condition ")" "{" statement "}"

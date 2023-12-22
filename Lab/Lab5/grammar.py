@@ -10,8 +10,6 @@ class Grammar:
         self.__productions = ProductionSet()
         self.__is_cfg = None
 
-        # Initialize the object
-
         self.__read_from_file()
         self.__is_cfg = self.__check_if_cfg()
 

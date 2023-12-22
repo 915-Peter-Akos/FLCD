@@ -1,7 +1,7 @@
 from grammar import Grammar
 
 if __name__ == "__main__":
-    grammar = Grammar("g1.txt")
+    grammar = Grammar("g2.txt")
 
     print(f"File: {grammar.get_input_file()}")
     print(f"Nonterminals: {grammar.get_nonterminals()}")

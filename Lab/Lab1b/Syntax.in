@@ -1,4 +1,4 @@
-program = {statement}
+program = statement, {statement}
 
 statement = (var_statement | assign_statement | io_statement | conditional_statement | while_statement)
 
